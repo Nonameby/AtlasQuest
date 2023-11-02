@@ -1,4 +1,13 @@
 AddOn: AtlasQuest
+
+Version: 4.1.4
+Last Update: 11(November).02(2nd).2023
+Quests for all dungeons/raids including Gilneas City, Lower Karazhan Halls, Emerald Sanctum.
+Added an option to check updates for new version in the future. Unfortunately previous version doesnt have that option so spread out the word about available update:
+https://forum.turtle-wow.org/viewtopic.php?t=7959
+
+
+
 Version: 4.1.3 TurtleWOW Edition
 Last Update: 24.06.2023
 Shahopriest

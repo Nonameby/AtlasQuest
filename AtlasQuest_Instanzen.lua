@@ -170,6 +170,18 @@ function AtlasQuest_Instanzenchecken()
 	elseif (AQATLASMAP == "Interface\\AddOns\\Atlas\\Images\\Maps\\StormwindVault") then
 		AQINSTANZ = 43;
 
+	elseif (AQATLASMAP == "Interface\\AddOns\\Atlas\\Images\\Maps\\GilneasCity") then
+		AQINSTANZ = 44;
+
+	elseif (AQATLASMAP == "Interface\\AddOns\\Atlas\\Images\\Maps\\LowerKara") then
+		AQINSTANZ = 45;
+
+	elseif (AQATLASMAP == "Interface\\AddOns\\Atlas\\Images\\Maps\\EmeraldSanctum") then
+		AQINSTANZ = 46;
+
+	elseif (AQATLASMAP == "Interface\\AddOns\\Atlas\\Images\\Maps\\Ostarius") then
+		AQINSTANZ = 47;
+
 	-- Default
 
 	else --added for newer atlas version until i update atlasquest and for the flight pass maps
@@ -370,4 +382,7 @@ end
 -- 41 = Karazhan Crypt (KC) -- TurtleWOW
 -- 42 = Black Morass (BM) -- TurtleWOW
 -- 43 = Stormwind Vault (SWV) -- TurtleWOW
+-- 44 - Gilneas City (GC) -- TurtleWOW
+-- 45 - Lower Karazhan Halls (LKH) -- TurtleWOW
+-- 46 - Emerald Sanctum (ES) -- TurtleWOW
 -- 99 =  default "rest"

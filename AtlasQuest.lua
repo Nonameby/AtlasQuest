@@ -338,6 +338,9 @@ function atlasquest_command(param)
      ChatFrame1:AddMessage("Stormwind Vault: 32"); -- TurtleWOW
      ChatFrame1:AddMessage("Black Morass: 33"); -- TurtleWOW
      ChatFrame1:AddMessage("Karazhan Crypt: 34"); -- TurtleWOW
+     ChatFrame1:AddMessage("Gilneas City: 35"); -- TurtleWOW 1.17.0
+     ChatFrame1:AddMessage("Lower Karazhan Halls: 36"); -- TurtleWOW 1.17.0
+     ChatFrame1:AddMessage("Emerald Sanctum: 37"); -- TurtleWOW 1.17.0
 
      
   --List of Alliance Quests
@@ -630,19 +633,40 @@ local count
     if (Quest == nil) then  -- added for use in button text to change the caption dunno whether i add it or not
       Quest = AQSHOWNQUEST;
     end
-    if (Quest <= 9) then
-      if (Allianceorhorde == 1) then
-        OnlyQuestNameRemovedNumber = strsub(getglobal("Inst"..AQINSTANZ.."Quest"..Quest), 4)
-      elseif (Allianceorhorde == 2) then
-        OnlyQuestNameRemovedNumber = strsub(getglobal("Inst"..AQINSTANZ.."Quest"..Quest.."_HORDE"), 4)
-      end
-    elseif (Quest > 9) then
-      if (Allianceorhorde == 1) then
-        OnlyQuestNameRemovedNumber = strsub(getglobal("Inst"..AQINSTANZ.."Quest"..Quest), 5)
-      elseif (Allianceorhorde == 2) then
-        OnlyQuestNameRemovedNumber = strsub(getglobal("Inst"..AQINSTANZ.."Quest"..Quest.."_HORDE"), 5)
-      end
-    end
+
+-- TurtleWOW fix for (TW) marked quests. this gonna change new TurtleWOW quests to blue if you have it in your quest log.
+   if (Quest <= 9) then
+            if (Allianceorhorde == 1) then
+                if strfind(getglobal("Inst"..AQINSTANZ.."Quest"..Quest), "(TW)") then
+                    OnlyQuestNameRemovedNumber = strsub(getglobal("Inst"..AQINSTANZ.."Quest"..Quest), 8)
+                else
+                    OnlyQuestNameRemovedNumber = strsub(getglobal("Inst"..AQINSTANZ.."Quest"..Quest), 4)
+                end
+            elseif (Allianceorhorde == 2) then
+                if strfind(getglobal("Inst"..AQINSTANZ.."Quest"..Quest.."_HORDE"), "(TW)") then
+                    OnlyQuestNameRemovedNumber = strsub(getglobal("Inst"..AQINSTANZ.."Quest"..Quest.."_HORDE"), 8)
+                else
+                    OnlyQuestNameRemovedNumber = strsub(getglobal("Inst"..AQINSTANZ.."Quest"..Quest.."_HORDE"), 4)
+                end
+            end
+        elseif (Quest > 9) then
+            if (Allianceorhorde == 1) then
+                if strfind(getglobal("Inst"..AQINSTANZ.."Quest"..Quest), "(TW)") then
+                    OnlyQuestNameRemovedNumber = strsub(getglobal("Inst"..AQINSTANZ.."Quest"..Quest), 9)
+                else
+                    OnlyQuestNameRemovedNumber = strsub(getglobal("Inst"..AQINSTANZ.."Quest"..Quest), 5)
+                end
+            elseif (Allianceorhorde == 2) then
+                if strfind(getglobal("Inst"..AQINSTANZ.."Quest"..Quest.."_HORDE"), "(TW)") then
+                    OnlyQuestNameRemovedNumber = strsub(getglobal("Inst"..AQINSTANZ.."Quest"..Quest.."_HORDE"), 9)
+                else
+                    OnlyQuestNameRemovedNumber = strsub(getglobal("Inst"..AQINSTANZ.."Quest"..Quest.."_HORDE"), 5)
+                end
+            end
+        end
+
+
+
     --this checks should be done everytime when the questupdate event gets executed
     TotalQuestEntries = GetNumQuestLogEntries();
     for CurrentQuestnum=1, TotalQuestEntries do
@@ -848,3 +872,109 @@ function AQ_OnShow()
    end
   AtlasQuestSetTextandButtons()
 end
+
+
+--NEW VERSION CHECK/UPDATE
+--credits to: 
+        --https://github.com/shagu/pfUI/
+        --https://github.com/Lexiebean/AtlasLoot/
+        
+--pfUI.api.strsplit
+local function AtlasQuest_strsplit(delimiter, subject)
+  if not subject then return nil end
+  local delimiter, fields = delimiter or ":", {}
+  local pattern = string.format("([^%s]+)", delimiter)
+  string.gsub(subject, pattern, function(c) fields[table.getn(fields)+1] = c end)
+  return unpack(fields)
+end
+
+--Update announcing code taken from pfUI
+local major, minor, fix = AtlasQuest_strsplit(".", tostring(GetAddOnMetadata("AtlasQuest", "Version")))
+
+local alreadyshown = false
+local localversion  = tonumber(major*10000 + minor*100 + fix)
+local remoteversion = tonumber(AtlasQuest_updateavailable) or 0
+local loginchannels = { "BATTLEGROUND", "RAID", "GUILD" }
+local groupchannels = { "BATTLEGROUND", "RAID" }
+
+AtlasQuest_updater_ChatFrame_OnEvent = ChatFrame_OnEvent
+AtlasQuest_updater = CreateFrame("Frame")
+AtlasQuest_updater:RegisterEvent("CHAT_MSG_ADDON")
+AtlasQuest_updater:RegisterEvent("PLAYER_ENTERING_WORLD")
+AtlasQuest_updater:RegisterEvent("PARTY_MEMBERS_CHANGED")
+
+function ChatFrame_OnEvent(event)
+
+    if event == "CHAT_MSG_CHANNEL" then
+    
+        local type = strsub(event, 10)
+        local source = strsub(type,1,1)
+        if type == "CHANNEL" and arg4 then
+            _,_,source = string.find(arg4,"(%d+)%.")
+        end
+        
+        if source then
+            _,name = GetChannelName(source)
+        end
+        
+        if name == "LFT" then
+            local msg, v, remoteversion = AtlasQuest_strsplit(":", arg1)
+            if msg == "AtlasQuest" then
+                local remoteversion = tonumber(remoteversion)
+                if remoteversion >= 60000 then remoteversion = 0 end --Block for people using some version from another version of WoW.
+                if v == "VERSION" and remoteversion then
+                    if remoteversion > localversion then
+                        AtlasQuest_updateavailable = remoteversion
+                        if not alreadyshown then
+                            DEFAULT_CHAT_FRAME:AddMessage("|cffbe5eff[AtlasQuest]|r https://forum.turtle-wow.org/viewtopic.php?t=7959")
+                            alreadyshown = true
+                        end
+                    end
+                end
+            end
+        end
+    end
+    AtlasQuest_updater_ChatFrame_OnEvent(event);
+end
+
+AtlasQuest_updater:SetScript("OnEvent", function()
+    if event == "CHAT_MSG_ADDON" and arg1 == "AtlasQuest" then
+        local v, remoteversion = AtlasQuest_strsplit(":", arg2)
+        local remoteversion = tonumber(remoteversion)
+        if remoteversion >= 60000 then remoteversion = 0 end --Block for people using some version from another version of WoW.
+        if v == "VERSION" and remoteversion then
+            if remoteversion > localversion then
+                AtlasQuest_updateavailable = remoteversion
+                if not alreadyshown then
+                    DEFAULT_CHAT_FRAME:AddMessage("|cffbe5eff[AtlasQuest]|r New version available! https://forum.turtle-wow.org/viewtopic.php?t=7959")
+                    alreadyshown = true
+                end
+            end
+        end
+    end
+
+    if event == "PARTY_MEMBERS_CHANGED" then
+        local groupsize = GetNumRaidMembers() > 0 and GetNumRaidMembers() or GetNumPartyMembers() > 0 and GetNumPartyMembers() or 0
+        if ( this.group or 0 ) < groupsize then
+            for _, chan in pairs(groupchannels) do
+                SendAddonMessage("AtlasQuest", "VERSION:" .. localversion, chan)
+            end
+        end
+        this.group = groupsize
+    end
+
+    if event == "PLAYER_ENTERING_WORLD" then
+      if not alreadyshown and localversion < remoteversion then
+        DEFAULT_CHAT_FRAME:AddMessage("|cffbe5eff[AtlasQuest]|r New version available! https://forum.turtle-wow.org/viewtopic.php?t=7959")
+        AtlasQuest_updateavailable = localversion
+        alreadyshown = true
+      end
+
+      for _, chan in pairs(loginchannels) do
+        SendAddonMessage("AtlasQuest", "VERSION:" .. localversion, chan)
+      end
+      if GetChannelName("LFT") ~= 0 then
+        SendChatMessage("AtlasQuest:VERSION:" .. localversion, "CHANNEL", nil, GetChannelName("LFT"))
+      end
+    end
+  end)
