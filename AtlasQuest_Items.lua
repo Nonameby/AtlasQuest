@@ -167,6 +167,13 @@ Inst1Quest2ITC1_HORDE = Itemc3;
 Inst1Quest2description1_HORDE = AQITEM_HEAD..AQITEM_CLOTH
 Inst1Quest2ID1_HORDE = "70070"
 
+--Quest 3 Horde
+Inst1Quest3Rewardtext_HORDE = AQDiscription_REWARD..WHITE.."1"
+--ITEM1
+Inst1Quest3ITC1_HORDE = Itemc4;
+Inst1Quest3description1_HORDE = AQITEM_TWOHAND..AQITEM_AXE
+Inst1Quest3ID1_HORDE = "40065"
+
 
 --------------- INST2 - Wailing Caverns (WC) ---------------
 
@@ -297,6 +304,16 @@ Inst2Quest7ITC2_HORDE = Itemc3;
 Inst2Quest7description2_HORDE = AQITEM_FEET..AQITEM_MAIL
 Inst2Quest7ID2_HORDE = "10658"
 
+--Quest 8 Horde
+Inst2Quest8Rewardtext_HORDE = AQDiscription_REWARD..WHITE.."1"..AQDiscription_OR..WHITE.."2"..AQDiscription_OR..WHITE.."3"
+--ITEM1
+Inst2Quest8ITC1_HORDE = Itemc4;
+Inst2Quest8description1_HORDE = AQITEM_TWOHAND..AQITEM_STAFF
+Inst2Quest8ID1_HORDE = "80860"
+--ITEM2
+Inst2Quest8ITC2_HORDE = Itemc4;
+Inst2Quest8description2_HORDE = AQITEM_ONEHAND..AQITEM_DAGGER
+Inst2Quest8ID2_HORDE = "80861"
 
 
 --------------- INST3 - Ragefire Chasm (RFC) ---------------

@@ -1,5 +1,9 @@
 AddOn: AtlasQuest
 
+Version: 4.1.5
+Last Update: 01(January).22(22nd).2024
+Error messages should be fixed.
+
 Version: 4.1.4
 Last Update: 11(November).02(2nd).2023
 Quests for all dungeons/raids including Gilneas City, Lower Karazhan Halls, Emerald Sanctum.

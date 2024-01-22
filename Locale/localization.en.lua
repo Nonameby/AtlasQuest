@@ -158,7 +158,7 @@ AQITEM_ENCHANT = "Enchant"
 Inst1Story = "Once the greatest gold production center in the human lands, the Dead Mines were abandoned when the Horde razed Stormwind city during the First War. Now the Defias Brotherhood has taken up residence and turned the dark tunnels into their private sanctum. It is rumored that the thieves have conscripted the clever goblins to help them build something terrible at the bottom of the mines - but what that may be is still uncertain. Rumor has it that the way into the Deadmines lies through the quiet, unassuming village of Moonbrook."
 Inst1Caption = "Deadmines"
 Inst1QAA = "9 Quests 2TW" -- how many quests for alliance
-Inst1QAH = "2 Quests 2TW" -- for horde
+Inst1QAH = "3 Quests 3TW" -- for horde
 
 --Quest 1 Alliance
 Inst1Quest1 = "1. Red Silk Bandanas" -- 214
@@ -301,12 +301,24 @@ Inst1Quest2_HORDE_Folgequest = "No"
 --
 Inst1Quest2name1_HORDE = "Grayson’s Hat"
 
+--Quest 3 Horde
+Inst1Quest3_HORDE = "(TW)3. Horde Defender's Axe" -- 39998
+Inst1Quest3_HORDE_Level = "18"
+Inst1Quest3_HORDE_Attain = "15"
+Inst1Quest3_HORDE_Aim = "Bring a Stolen Tombstone to Nargal Deatheye at the Crossroads"
+Inst1Quest3_HORDE_Location = "Birgitte Cranston <Portal Trainer> (Thunder Bluff)"
+Inst1Quest3_HORDE_Note = "You start this Questline at Nargal Deatheye (Crossroads "..YELLOW.."51.2,29.1"..WHITE..").\nThis quest "..RED.."JUST TELEPORTS you to WESTFALL"..WHITE..". You can either finish this quest and get the reward after completing questline or use it as westfall teleport retaking the quest."
+Inst1Quest3_HORDE_Prequest = "Horde Defender's Axe" -- 39994, 39995, 39996, 39997
+Inst1Quest3_HORDE_Folgequest = "Horde Defender's Axe" -- 39999
+--
+Inst1Quest3name1_HORDE = "Horde Defender's Axe" -- 40065
+
 
 --------------- INST2 - Wailing Caverns (WC) ---------------
 Inst2Story = "Recently, a night elf druid named Naralex discovered a network of underground caverns within the heart of the Barrens. Dubbed the 'Wailing Caverns', these natural caves were filled with steam fissures which produced long, mournful wails as they vented. Naralex believed he could use the caverns' underground springs to restore lushness and fertility to the Barrens - but to do so would require siphoning the energies of the fabled Emerald Dream. Once connected to the Dream however, the druid's vision somehow became a nightmare. Soon the Wailing Caverns began to change - the waters turned foul and the once-docile creatures inside metamorphosed into vicious, deadly predators. It is said that Naralex himself still resides somewhere inside the heart of the labyrinth, trapped beyond the edges of the Emerald Dream. Even his former acolytes have been corrupted by their master's waking nightmare - transformed into the wicked Druids of the Fang."
 Inst2Caption = "Wailing Caverns"
 Inst2QAA = "7 Quests 2TW"
-Inst2QAH = "7 Quests"
+Inst2QAH = "8 Quests 1TW"
 
 --Quest 1 Alliance
 Inst2Quest1 = "1. Deviate Hides" --1486
@@ -484,6 +496,18 @@ Inst2Quest7_HORDE_Folgequest = "In Nightmares(ends in Thunder Bluff)" -- 3369
 Inst2Quest7name1_HORDE = Inst2Quest5name1
 Inst2Quest7name2_HORDE = Inst2Quest5name2
 
+--Quest 8 Horde
+Inst2Quest8_HORDE = "(TW)8. Arcane Arms" -- 80312
+Inst2Quest8_HORDE_Level = "18"
+Inst2Quest8_HORDE_Attain = "14"
+Inst2Quest8_HORDE_Aim = "Bring Chok'Garok 5 pieces of Moontouched Wood"..YELLOW.."trash"..WHITE..", a Crystal of the Serpent, and an Everchanging Essence from Wailing Caverns."
+Inst2Quest8_HORDE_Location = "Chok'Garok <Stonemaul Clan> (on a bank of Southfury River in the Barrens; "..YELLOW.."62.4,10.8"..WHITE..")"
+Inst2Quest8_HORDE_Note = ""..YELLOW.."Mage ONLY."..WHITE.." The Questline starts at Ureda <Mage Trainer> (Orgrimar) with quest 'Mastering the Arcane'.\nMoontouched Wood you get from "..YELLOW.."trash"..WHITE..", a Crystal of the Serpent from Lord Serpentis <Fanglord>"..YELLOW.."[7]"..WHITE..", and an Everchanging Essence from Lord Pythas <Fanglord> "..YELLOW.."[5]"..WHITE.."."
+Inst2Quest8_HORDE_Prequest = "Mastering the Arcane" -- 80311
+Inst2Quest8_HORDE_Folgequest = "No"
+--
+Inst2Quest8name1_HORDE = "Staff of the Arcane Path" -- 80860
+Inst2Quest8name2_HORDE = "Spellweaving Dagger" -- 80861
 
 
 --------------- INST3 - Ragefire Chasm (RFC) ---------------
@@ -1132,9 +1156,9 @@ Inst5Quest18_Folgequest = "Operation Help Jabbey 2 -> Operation Return to Screwf
 Inst5Quest19 = "(TW)19. The Dark Iron Desecrator" -- 40762
 Inst5Quest19_Level = "60"
 Inst5Quest19_Attain = "55"
-Inst5Quest19_Aim = "I need a Magma Condensor from within Blackrock Depths, you can find it near the Golem Laboratory"..YELLOW.."[25]"..WHITE.."."
+Inst5Quest19_Aim = "I need a Magma Condensor from within Blackrock Depths, you can find it near the Golem Laboratory"..YELLOW.."[14]"..WHITE.."."
 Inst5Quest19_Location = "Bixxle Screwfuse (Tel'Abim Island east from Tanaris)"
-Inst5Quest19_Note = "This quest requires to collect 4 items.\n1) Magma Condensor (Blackrock Depths in Magma Condensor Crate) \n2) Intricate Arcanite Barrel (Blackrock Spire in Intricate Arcanite Barrels container)\n3) Molten Fragment (Molten Core from Molten Destroyer).\n4) Dark Iron Rifle (crafted by Engineers).\nTo finish the construction, I will also need Fiery Core(x3) found in Molten Core, and Enchanted Thorium Bars(x10)."
+Inst5Quest19_Note = "This quest requires to collect 4 items.\n1) Magma Condensor (Blackrock Depths in Magma Condensor Crate) "..YELLOW.."[14]"..WHITE.." north west corner of the room.\n2) Intricate Arcanite Barrel (Blackrock Spire in Intricate Arcanite Barrels container)\n3) Molten Fragment (Molten Core from Molten Destroyer).\n4) Dark Iron Rifle (crafted by Engineers).\nTo finish the construction, I will also need Fiery Core(x3) found in Molten Core, and Enchanted Thorium Bars(x10)."
 Inst5Quest19_Prequest = "Secrets of the Dark Iron Desecrator" --40761
 Inst5Quest19_Folgequest = "No"
 --
@@ -1974,7 +1998,7 @@ Inst8Quest15_Level = "60"
 Inst8Quest15_Attain = "55"
 Inst8Quest15_Aim = "I require a Intricate Arcanite Barrel which can handle extreme heat. This can be found deep within Lower Blackrock Spire, near the Quartermaster "..YELLOW.."[16]"..WHITE.." there."
 Inst8Quest15_Location = "Bixxle Screwfuse (Tel'Abim Island east from Tanaris)"
-Inst8Quest15_Note = "This quest requires to collect 4 items.\n1) Magma Condensor (Blackrock Depths in Magma Condensor Crate) \n2) Intricate Arcanite Barrel (Blackrock Spire in Intricate Arcanite Barrels container)\n3) Molten Fragment (Molten Core from Molten Destroyer).\n4) Dark Iron Rifle (crafted by Engineers).\nFiery Core(x3) found in Molten Core, and Enchanted Thorium Bars(x10)."
+Inst8Quest15_Note = "This quest requires to collect 4 items.\n1) Magma Condensor (Blackrock Depths in Magma Condensor Crate) \n2) Intricate Arcanite Barrel (Blackrock Spire in Intricate Arcanite Barrels container) its a little box on a big box in the middle of the room.\n3) Molten Fragment (Molten Core from Molten Destroyer).\n4) Dark Iron Rifle (crafted by Engineers).\nFiery Core(x3) found in Molten Core, and Enchanted Thorium Bars(x10)."
 Inst8Quest15_Prequest = "Secrets of the Dark Iron Desecrator" --40761
 Inst8Quest15_Folgequest = "No"
 --
@@ -7151,7 +7175,7 @@ Inst44Quest2 = "(TW)2. Behind The Wall" -- 40841
 Inst44Quest2_Level = "41"
 Inst44Quest2_Attain = "36"
 Inst44Quest2_Aim = "Venture into Gilneas City and recover the Dawnstone Plans for Therum Deepforge in Stormwind."
-Inst44Quest2_Location = "Therum Deepforge <Expert Blacksmith> (Ironforge - Dwarven District"..YELLOW.."63.3,37"..WHITE..", can be walking around there)"
+Inst44Quest2_Location = "Therum Deepforge <Expert Blacksmith> (Stormwind - Dwarven District"..YELLOW.."63.3,37"..WHITE..", can be walking around there)"
 Inst44Quest2_Note = "the Dawnstone Plans in the building "..YELLOW.."[a]"..WHITE.." on the box."
 Inst44Quest2_Prequest = "No"
 Inst44Quest2_Folgequest = "No"
