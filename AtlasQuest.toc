@@ -13,7 +13,7 @@
 ## X-eMail: m4r3lk4@gmail.com
 ## X-Website: https://forum.turtle-wow.org/viewtopic.php?t=7959
 ## X-Category: MYADDONS_CATEGORY_MAP
-## X-Date: 02.11.2023
+## X-Date: 22.01.2024
 ## X-Help: AtlasQuestHelp
 ## OptionalDeps: Atlas, AlphaMap, myAddOns, AtlasLoot
 ## LoadOnDemand: 0
