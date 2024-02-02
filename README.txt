@@ -1,6 +1,11 @@
 AddOn: AtlasQuest
 
 Version: 4.1.5
+Last Update: 02(February).02(2nd).2024
+Gnomeregan quest location changes from Ironforge to Dun Morogh - Gnomeregan Reclamation Facility
+without update download announcement in chat.
+
+Version: 4.1.5
 Last Update: 01(January).22(22nd).2024
 Error messages should be fixed.
 
